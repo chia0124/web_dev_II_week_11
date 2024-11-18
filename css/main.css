@@ -1,0 +1,75 @@
+
+img {
+    max-width: 100%;
+    animation: nonsense 3s infinite alternate;
+}
+@keyframes nonsense {
+    0% {
+        transform: rotate(0) scale(1);
+    }
+    50% {
+        transform: rotate(60deg) scale(0.5);
+    }
+    70% {
+        transform: rotate(-60deg) scale(0.9);
+    }
+    100% {
+        transform: rotate(180deg) scale(0.5);
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    img {
+        /* animation: nonsense-reduced 10s infinite alternate; */
+        animation: none;
+    }
+}
+
+@keyframes nonsense-reduced {
+    0% {
+        transform: rotate(0) scale(1);
+    }
+    50% {
+        transform: rotate(20deg) scale(0.8);
+    }
+    70% {
+        transform: rotate(-20deg) scale(0.95);
+    }
+    100% {
+        transform: rotate(60deg) scale(0.8);
+    }
+}
+
+/* Lots of websites offer light and dark modes. We can style our page differently based on the theme the *device* is set to. If your phone or desktop is set to dark mode, then these styles will be applied. */
+@media (prefers-color-scheme: dark) {
+    body {
+        color: #eee;
+        background-color: #222;
+    }
+    
+    /* it's good practice to reduce the brightness of images in dark mode because they can be very bright when the surrounding content is dimmer. */
+    img {
+        opacity: 0.9;
+    }
+}
+
+
+button + .popup {
+    top: 100%;
+    background-color: darkred;
+    color: #faa;
+    opacity: 0;
+}
+
+button:hover + .popup {
+    opacity: 1;
+}
+
+@media (hover:none) {
+    button {
+        display: none;
+    }
+    button + .popup {
+        opacity: 1;
+    }
+}
